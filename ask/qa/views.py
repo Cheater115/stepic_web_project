@@ -74,7 +74,7 @@ def ask_question(request):
             return HttpResponseRedirect(url)
     else:
         form = AskForm()
-    return render(request, 'baseform.html', {
+    return render(request, 'ask.html', {
         'form': form,
         'user': request.user,
         'session': request.session,
@@ -95,7 +95,7 @@ def user_signup(request):
             return HttpResponseRedirect('/')
     else:
         form = SignupForm()
-    return render(request, 'baseform.html', {
+    return render(request, 'signup.html', {
         'form': form,
         'user': request.user,
         'session': request.session,
@@ -115,7 +115,7 @@ def user_login(request):
             return HttpResponseRedirect('/')
     else:
         form = LoginForm()
-    return render(request, 'loginform.html', {
+    return render(request, 'login.html', {
         'form': form,
         'user': request.user,
         'session': request.session,
