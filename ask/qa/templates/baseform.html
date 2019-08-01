@@ -1,19 +1,12 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Q&A</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-	<div>
-		<h2>Ask Question</h2>
-		<form action="/ask/" method="post">
-			{% csrf_token %}
-			{{ form.as_p }}
-			<input type="submit" value="Submit" />
-		</form>
-	</div>
-
-</body>
-</html>
+{% block content %}
+<div>
+	<h2>Ask Question</h2>
+	<form action="/ask/" method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<input type="submit" value="Submit" />
+	</form>
+</div>
+{% endblock %}
