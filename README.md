@@ -39,6 +39,8 @@
 * Название ветки *mysql*, чтобы перейти к данному этапу введите:
 > `git checkout mysql`
 * Установка mysql
-> `sudo apt-get install mysql-client`
+> `sudo apt-get install mysql-client mysql-server`
 
-> `sudo apt-get install mysql-server`
+> `sudo apt-get install python-dev libmysqlclient-dev build-essential`
+
+> `sudo pip install mysqlclient`
