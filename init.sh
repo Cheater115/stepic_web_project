@@ -14,6 +14,7 @@ case "$1" in
 		# delete default location settings
 		sudo rm -rf /etc/nginx/sites-enabled/default
 		# start nginx
+		sudo /etc/init.d/nginx stop
 		sudo /etc/init.d/nginx start
 	;;
 	start)
