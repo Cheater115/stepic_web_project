@@ -19,7 +19,7 @@ class Question(models.Model):
     rating = models.IntegerField(default = 0)
     objects = QuestionManager()
 
-    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    author = models.ForeignKey(User, null = True, on_delete = models.CASCADE)
     likes = models.ManyToManyField(User, related_name = 'likes')
 
     def get_url(self):
@@ -34,4 +34,4 @@ class Answer(models.Model):
     added_at = models.DateTimeField(auto_now_add = True)
 
     question = models.ForeignKey(Question, on_delete = models.CASCADE)
-    author = models.ForeignKey(User, on_delete = models.CASCADE)
+    author = models.ForeignKey(User, null = True, on_delete = models.CASCADE)
