@@ -9,12 +9,12 @@
 
 ### Отдача статических файлов
 * Название ветки *nginx*, чтобы перейти к данному этапу введите:
-> <<git checkout nginx>>
+> `git checkout nginx`
 * Установка nginx
-> <<sudo apt-get install nginx>>
+> `sudo apt-get install nginx`
 
 ### Запуск WSGI приложений
 * Название ветки *gunicorn*, чтобы перейти к данному этапу введите:
-> <<git checkout gunicorn>>
+> `git checkout gunicorn`
 * Установка gunicorn
-> <<sudo apt-get install gunicorn>>
+> `sudo apt-get install gunicorn`
