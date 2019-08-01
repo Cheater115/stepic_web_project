@@ -39,7 +39,7 @@ case "$1" in
 	;;
 	restart)
 		sudo /etc/init.d/nginx restart
-		sudo /etc/init.d/restart restart
+		sudo /etc/init.d/gunicorn restart
 	;;
 	stop)
 		sudo /etc/init.d/nginx stop
