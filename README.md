@@ -12,6 +12,7 @@
 1. Отдача статических файлов([п. 1.8](https://stepik.org/lesson/14825/step/12?unit=4174))
 2. Запуск WSGI приложений([п. 1.9](https://stepik.org/lesson/14826/step/11?unit=4175))
 3. Создание Django приложения([п. 2.1](https://stepik.org/lesson/14827/step/11?unit=4176))
+4. Создание моделей в Django приложении([п. 2.3](https://stepik.org/lesson/14829/step/10?unit=4178))
 
 ### Отдача статических файлов
 * Название ветки *nginx*, чтобы перейти к данному этапу введите:
@@ -32,3 +33,9 @@
 > `sudo apt-get install python-pip`
 
 > `sudo pip install django==1.10.5`
+
+### Создание моделей в Django приложении
+* Название ветки *mysql*, чтобы перейти к данному этапу введите:
+> `git checkout mysql`
+* Установка mysql
+> `sudo apt-get install mysql-client`
