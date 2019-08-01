@@ -1,7 +1,7 @@
 #!/bin/bash
 
 WORK_DIR="/home/box"
-PROJ_NAME="$WORK_DIR/web"
+PROJ_DIR="$WORK_DIR/web"
 
 
 ################
