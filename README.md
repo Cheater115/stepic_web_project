@@ -29,5 +29,5 @@
 * Название ветки *django*, чтобы перейти к данному этапу введите:
 > `git checkout django`
 * Установка django
-> `sudo apt-get install python-pip`
+> `sudo apt-get install python-pip` 
 > `sudo pip install django==1.10.5`
