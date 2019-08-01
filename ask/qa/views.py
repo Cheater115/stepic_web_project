@@ -3,6 +3,7 @@ from django.http import HttpResponse
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 from .models import Question, Answer
+from .forms import AskForm, AnswerForm
 
 # Test views
 def test(request, *args, **kwargs):
