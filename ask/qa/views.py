@@ -3,4 +3,4 @@ from django.http import HttpResponse
 
 # Test views
 def test(request, *args, **kwargs):
-	return HttpResponse('OK')
+    return HttpResponse('OK')

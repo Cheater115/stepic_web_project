@@ -6,14 +6,14 @@ from django.urls import reverse
 
 # Own manager for models Question
 class QuestionManager(models.Manager):
-	def new(self):
+    def new(self):
         return self.order_by('-added_at')
     def popular(self):
         return self.order_by('-rating')	
 # Model Question
 class Question(models.Model):
-	# fields
-	title = models.CharField(max_length = 255)
+    # fields
+    title = models.CharField(max_length = 255)
     text = models.TextField()
     added_at = models.DateTimeField(auto_now_add = True)
     rating = models.IntegerField(default = 0)
