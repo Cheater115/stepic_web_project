@@ -1,5 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+
+from .models import Question, Answer
 
 # Test views
 def test(request, *args, **kwargs):
@@ -22,7 +25,7 @@ def paginate_questions(request, qs):
 def new_questions(request):
     question_list = Question.objects.new()
     questions = paginate_questions(request, question_list)
-    return render(request, 'questionlist.html', {
+    return render(request, 'new.html', {
         "questions": questions,
     })
 
@@ -30,7 +33,7 @@ def new_questions(request):
 def popular_questions(request):
     question_list = Question.objects.popular()
     questions = paginate_questions(request, question_list)
-    return render(request, 'questionlist.html', {
+    return render(request, 'popular.html', {
         "questions": questions,
     })
 
