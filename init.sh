@@ -2,6 +2,8 @@
 
 WORK_DIR="/home/box"
 PROJ_DIR="$WORK_DIR/web"
+DJ_PROJ_DIR="$PROJ_DIR/ask"
+DJ_APP_NAME="qa"
 
 
 init_nginx()
@@ -18,8 +20,10 @@ init_gunicorn()
 {
 	# delete example settings
 	sudo rm /etc/gunicorn.d/*
-	# include setting for hello.py to gunicorn
+	# include settings for hello.py to gunicorn
 	sudo ln -sf $PROJ_DIR/etc/hello.conf /etc/gunicorn.d/hello.conf
+	# include settings for app ask to gunicorn 
+	sudo ln -sf $PROJ_DIR/etc/ask.conf /etc/gunicorn.d/ask.conf
 	# start gunicorn
 	sudo /etc/init.d/gunicorn start
 }
