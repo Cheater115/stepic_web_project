@@ -7,6 +7,7 @@
 * nginx (v. 1.4.6)
 * gunicorn (v. 17.5.0)
 * django (v. 1.10.5)
+* mysql (v. 5.5.62)
 
 ## Этапы проекта:
 1. Отдача статических файлов([п. 1.8](https://stepik.org/lesson/14825/step/12?unit=4174))
@@ -39,3 +40,5 @@
 > `git checkout mysql`
 * Установка mysql
 > `sudo apt-get install mysql-client`
+
+> `sudo apt-get install mysql-server`
