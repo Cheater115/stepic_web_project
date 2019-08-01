@@ -23,7 +23,7 @@ class Question(models.Model):
     likes = models.ManyToManyField(User, related_name = 'likes')
     # methods
     def get_url(self):
-        return reverse('question', kwargs = {'question_id': self.question_id})
+        return reverse('question', kwargs = {'id': self.id})
     def __unicode__(self) :
         return self.title
 

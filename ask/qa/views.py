@@ -38,8 +38,8 @@ def popular_questions(request):
     })
 
 # View for work with specific question
-def question_details(request, question_id = None):
-    question = get_object_or_404(Question, question_id = question_id)
+def question_details(request, id = None):
+    question = get_object_or_404(Question, id = id)
     answers = question.answer_set.all()
     return render(request, 'question.html', {
         'question': question,
