@@ -17,5 +17,14 @@
 			</div>
 			{% endfor %}
 	</div>
+	<div> <br> <hr> <br> </div>
+	<div>
+      <h3>Add Answer</h3>
+      <form action="{{ question.get_url }}" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit" />
+      </form>
+    </div>
 </div>
 {% endblock %}
