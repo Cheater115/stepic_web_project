@@ -33,7 +33,7 @@ init_gunicorn()
 init_mysql()
 {
 	# Delete old settings
-	sudo rm /etc/mysql/conf.d/mysql.cnf
+	sudo rm -f /etc/mysql/conf.d/mysql.cnf
 	# Start MySQL
 	sudo /etc/init.d/mysql start
 	# Create database
