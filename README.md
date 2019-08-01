@@ -44,3 +44,5 @@
 > `sudo apt-get install python-dev libmysqlclient-dev build-essential`
 
 > `sudo pip install mysqlclient`
+* Игнорьте ошибку (ERROR 2002) - баг на локальной машине Stepik'a
+(обращается к сокету до создания, после последующих restart'ов ошибки нет)
