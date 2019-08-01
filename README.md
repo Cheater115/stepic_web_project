@@ -5,9 +5,16 @@
 * [Ubuntu 14.04.6 LTS (Trusty Tahr)](http://releases.ubuntu.com/14.04/)
 * python2 (v. 2.7.6)
 * nginx (v. 1.4.6)
-
-### Этапы проекта:
-1. Отдача статических файлов([п 1.8](https://stepik.org/lesson/14825/step/12?unit=4174))
+* gunicorn (v. 17.5.0)
 
 ### Отдача статических файлов
-Название ветки *nginx*, чтобы перейти к данному этапу введите: git checkout nginx
+* Название ветки *nginx*, чтобы перейти к данному этапу введите:
+> <<git checkout nginx>>
+* Установка nginx
+> <<sudo apt-get install nginx>>
+
+### Запуск WSGI приложений
+* Название ветки *gunicorn*, чтобы перейти к данному этапу введите:
+> <<git checkout gunicorn>>
+* Установка gunicorn
+> <<sudo apt-get install gunicorn>>
