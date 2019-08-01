@@ -39,7 +39,16 @@ init_mysql()
 	# Create database
 	sudo mysql -u root -e "create database if not exists $DB_NAME;"
 	# Create user with privileges to manage this database
-	sudo mysql -u root -e "grant all privileges on $DB_NAME.* to '$DB_USER_NAME'@'localhost' with grant option;"
+	sudo mysql -u root -e "grant all privileges on $DB_NAME.* to\
+		'$DB_USER_NAME'@'localhost' with grant option;"
+	# Put MySQL setups
+	sudo ln -sf $PROJ_DIR/etc/mysql.cnf /etc/mysql/conf.d/mysql.cnf
+	# Restart MySQL
+	sudo /etc/init.d/mysql restart
+	# Create migrations
+	$DJ_PROJ_DIR/manage.py makemigrations $DJ_APP_NAME
+	# Migrate them to MySQL
+	$DJ_PROJ_DIR/manage.py migrate
 }
 
 
