@@ -25,7 +25,7 @@ init_gunicorn()
 	# include settings for app ask to gunicorn 
 	sudo ln -sf $PROJ_DIR/etc/ask.conf /etc/gunicorn.d/ask.conf
 	# start gunicorn
-	sudo /etc/init.d/gunicorn start
+	sudo /etc/init.d/gunicorn restart
 }
 
 
