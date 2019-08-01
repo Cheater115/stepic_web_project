@@ -68,7 +68,7 @@ case "$1" in
 	;;
 	restart)
 		sudo /etc/init.d/nginx restart
-		sudo /etc/init.d/restart restart
+		sudo /etc/init.d/gunicorn restart
 		sudo /etc/init.d/mysql restart
 	;;
 	stop)
