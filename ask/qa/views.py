@@ -120,3 +120,8 @@ def user_login(request):
         'user': request.user,
         'session': request.session,
     })
+
+# View for logout
+def user_logout(request):
+    logout(request)
+    return HttpResponseRedirect('/')
