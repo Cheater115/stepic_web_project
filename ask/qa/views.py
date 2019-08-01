@@ -41,7 +41,30 @@ def popular_questions(request):
 def question_details(request, id = None):
     question = get_object_or_404(Question, id = id)
     answers = question.answer_set.all()
+    if request.method == "POST":
+        form = AnswerForm(request.POST)
+        if form.is_valid():
+            form._user = request.user
+            answer = form.save()
+            return HttpResponseRedirect(question.get_url())
+    else:
+        form = AnswerForm(initial = {'question': id})
     return render(request, 'question.html', {
         'question': question,
         'answers': answers,
+        'form': form,
+    })
+
+# View for ask new question
+def ask_question(request):
+    if request.method == "POST":
+        form = AskForm(request.POST)
+        if form.is_valid():
+            question = form.save()
+            url = question.get_url()
+            return HttpResponseRedirect(url)
+    else:
+        form = AskForm()
+    return render(request, 'baseform.html', {
+        'form': form,
     })
