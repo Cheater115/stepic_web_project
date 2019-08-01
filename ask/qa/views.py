@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.contrib.auth import authenticate, login
 
 from .models import Question, Answer
-from .forms import AskForm, AnswerForm
+from .forms import AskForm, AnswerForm, LoginForm, SignupForm
 
 # Test views
 def test(request, *args, **kwargs):
@@ -27,7 +28,9 @@ def new_questions(request):
     question_list = Question.objects.new()
     questions = paginate_questions(request, question_list)
     return render(request, 'new.html', {
-        "questions": questions,
+        'questions': questions,
+        'user': request.user,
+        'session': request.session,
     })
 
 # View for page with popular questions(/popular/)
@@ -35,7 +38,9 @@ def popular_questions(request):
     question_list = Question.objects.popular()
     questions = paginate_questions(request, question_list)
     return render(request, 'popular.html', {
-        "questions": questions,
+        'questions': questions,
+        'user': request.user,
+        'session': request.session,
     })
 
 # View for work with specific question
@@ -54,6 +59,8 @@ def question_details(request, id = None):
         'question': question,
         'answers': answers,
         'form': form,
+        'user': request.user,
+        'session': request.session,
     })
 
 # View for ask new question
@@ -61,6 +68,7 @@ def ask_question(request):
     if request.method == "POST":
         form = AskForm(request.POST)
         if form.is_valid():
+            form._user = request.user
             question = form.save()
             url = question.get_url()
             return HttpResponseRedirect(url)
@@ -68,4 +76,47 @@ def ask_question(request):
         form = AskForm()
     return render(request, 'baseform.html', {
         'form': form,
+        'user': request.user,
+        'session': request.session,
+    })
+
+# View for signup
+def user_signup(request):
+    if request.method == "POST":
+        form = SignupForm(request.POST)
+        if form.is_valid():
+            user = form.save()
+            username = request.POST['username']
+            password = form.raw_password
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+            return HttpResponseRedirect('/')
+    else:
+        form = SignupForm()
+    return render(request, 'baseform.html', {
+        'form': form,
+        'user': request.user,
+        'session': request.session,
+    })
+
+# View for login
+def user_login(request):
+    if request.method == "POST":
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data["username"]
+            password = form.cleaned_data["password"]
+            user = authenticate(username=username, password=password)
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+            return HttpResponseRedirect('/')
+    else:
+        form = LoginForm()
+    return render(request, 'loginform.html', {
+        'form': form,
+        'user': request.user,
+        'session': request.session,
     })
