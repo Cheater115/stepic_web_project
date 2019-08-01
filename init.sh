@@ -21,7 +21,7 @@ init_nginx()
 init_gunicorn()
 {
 	# delete example settings
-	sudo rm /etc/gunicorn.d/*
+	sudo rm -f /etc/gunicorn.d/*
 	# include settings for hello.py to gunicorn
 	sudo ln -sf $PROJ_DIR/etc/hello.conf /etc/gunicorn.d/hello.conf
 	# include settings for app ask to gunicorn 
