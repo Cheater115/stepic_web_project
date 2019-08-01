@@ -87,7 +87,7 @@ def user_signup(request):
         if form.is_valid():
             user = form.save()
             username = request.POST['username']
-            password = form.raw_password
+            password = form.empty_password
             user = authenticate(username=username, password=password)
             if user is not None:
                 if user.is_active:

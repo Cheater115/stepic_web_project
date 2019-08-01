@@ -10,11 +10,11 @@
 			<h1><a href="/">Main Page</a></h1>
 		</div>
 		<div class="login_menu">
-			{% if user %}
+			{% if user.id %}
 			<p> {{ user }} </p>
 			<a href="/logout/">logout</a>
 			{% endif %}
-			{% if not user %}
+			{% if not user.id %}
 			<a href="/login/">login</a>
 			<a href="/signup/">signup</a>
 			{% endif %}
